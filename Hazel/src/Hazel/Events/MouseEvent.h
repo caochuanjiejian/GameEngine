@@ -9,7 +9,7 @@ namespace Hazel {
 		MouseMovedEvent(float x, float y)
 			:m_MouseX(x), m_MouseY(y) {
 		}
-		inline float GetX()const { return m_MousedX; }
+		inline float GetX()const { return m_MouseX; }
 		inline float GetY()const { return m_MouseY; }
 		std::string ToString()const override
 		{
@@ -47,7 +47,7 @@ namespace Hazel {
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
-		Event_CLASS_CATEGORY(EventCategoryMouse|EventCategoryInput)
+		EVENT_CLASS_CATEGORY(EventCategoryMouse|EventCategoryInput)
 	protected:
 		MouseButtonEvent(int button)
 			:m_Button(button) {
