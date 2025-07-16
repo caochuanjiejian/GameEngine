@@ -9,12 +9,22 @@ workspace "Hazel"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+
+IncludeDir = {}
+IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
+include "Hazel/vendor/GLFW"
+
+
 project "Hazel"
 	location "Hazel"
 	kind "SharedLib"
 	language "C++"
 	targetdir("bin/" .. outputdir .."/%{prj.name}")
 	objdir("bin-int/" .. outputdir .."/%{prj.name}")
+	pchheader "hzpch.h"
+	pchsource "Hazel/src/hzpch.cpp"
+
 
 	files
 	{
@@ -25,7 +35,13 @@ project "Hazel"
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		 "%{wks.location}/Hazel/src/Hazel"
+		 "%{wks.location}/Hazel/src/Hazel",
+		 "%{wks.location}/Hazel/src",
+		 "%{IncludeDir.GLFW}"
+	}
+	links{
+		"GLFW",
+		"opengl32.lib"
 	}
 	filter "system:windows"
 		cppdialect "C++17"

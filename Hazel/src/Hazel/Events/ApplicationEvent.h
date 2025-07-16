@@ -1,7 +1,10 @@
 #pragma once
+#include "hzpch.h"
 #include "Event.h"
-#include <sstream>
+
 namespace Hazel {
+
+
 	class HAZEL_API WindowResizeEvent : public Event
 	{
 	public:
@@ -22,6 +25,8 @@ namespace Hazel {
 	private:
 		unsigned int m_Width, m_Height;
 	};
+
+
 	class HAZEL_API WindowCloseEvent :public Event
 	{
 	public:
@@ -29,6 +34,8 @@ namespace Hazel {
 		EVENT_CLASS_TYPE(WindowClose)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
+
+
 	class HAZEL_API AppTickEvent :public Event
 	{
 	public:
@@ -37,6 +44,8 @@ namespace Hazel {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 
 	};
+
+
 	class HAZEL_API AppUpdateEvent :public Event
 	{
 	public:
@@ -44,6 +53,8 @@ namespace Hazel {
 		EVENT_CLASS_TYPE(AppUpdate)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
+
+
 	class HAZEL_API AppRenderEvent :public Event
 	{
 	public:
@@ -51,5 +62,7 @@ namespace Hazel {
 		EVENT_CLASS_TYPE(AppRender)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
+
+
 
 }
