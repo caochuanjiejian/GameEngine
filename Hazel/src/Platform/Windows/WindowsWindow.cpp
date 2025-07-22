@@ -30,7 +30,7 @@ namespace Hazel {
 
 
 	//接收一个WindowProps类型的参数，把这个参数的成员变量赋值给m_Data,把成员变量的值打印到控制台，初始化glfwInit,根据传入的WindowProps类型的参数创建glfw窗口
-	void WindowsWindow::Init(const WindowProps& props)
+	void WindowsWindow::Init(const WindowProps& props)//初始化本对象的成员变量m_Data,初始化glfw,创建一个GLFWwindow对象m_Window，
 	{
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;

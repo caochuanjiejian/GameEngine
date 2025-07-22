@@ -18,7 +18,7 @@ namespace Hazel {
 	class HAZEL_API Window
 	{
 	public:
-		using EventCallbackFn = std::function<void(Event&)>;
+		using EventCallbackFn = std::function<void(Event&)>;//给函数起名字
 		virtual ~Window() {}
 		virtual void OnUpdate() = 0;
 		virtual unsigned int GetWidth()const = 0;

@@ -3,6 +3,10 @@
 #include "Event.h"
 
 namespace Hazel {
+	/*
+	
+	
+	*/
 	class HAZEL_API KeyEvent :public Event
 	{
 	public:
@@ -14,7 +18,17 @@ namespace Hazel {
 		}
 		int m_KeyCode;
 	};
-
+	/*
+	创建时传入两个整形参数以初始化它的成员变量m_KeyCode和m_RepeatCount,有成员函数GetRepeatCount(),用来获取成员变量m_RepeatCount，
+	有成员函数ToString()用来获取字符串"KeyPressedEvent:+m_KeyCode+(+m_RepeatCount+repeats),
+	有个静态方法GetStaticType()用来获取EventType::KeyPressed(枚举类)，
+	 有个成员函数GetEventType(),用来获取EventType::KeyPressed(枚举类)，
+	 有个成员函数GetName()用来获取字符串“KeyPressed",
+	 有个成员函数GetCategoryFlags(),用来获取EventCategoryApplication（枚举），
+	 有个成员函数IsInCategory(EventCategory category)，接受一个枚举，如果是EventCategoryApplication，则返回true，
+	 有一个成员变量m_Handled，值为false
+	
+	*/
 	class HAZEL_API KeyPressedEvent :public KeyEvent
 	{
 	public:

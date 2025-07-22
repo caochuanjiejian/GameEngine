@@ -29,6 +29,8 @@ namespace Hazel{
 								 const char* GetName() const override {return #type;}
 
 #define EVENT_CLASS_CATEGORY(category)  int GetCategoryFlags() const override {return category;}
+
+	//ToString()
 	class HAZEL_API Event
 	{
 		friend class EventDispatcher;
@@ -47,7 +49,7 @@ namespace Hazel{
 	};
 
 
-	
+	//事件分发器，创建对象时需要传入事件，有一个Dispatch成员函数，接受一个函数对象
 	class EventDispatcher
 	{
 		template<typename T>

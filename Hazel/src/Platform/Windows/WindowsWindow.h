@@ -12,7 +12,7 @@ namespace Hazel {
 		inline unsigned int GetWidth()const override { return m_Data.Width; }
 		inline unsigned int GetHeight()const override { return m_Data.Height; }
 
-		inline void SetEventCallback(const EventCallbackFn& callback)override { m_Data.EventCallback = callback; }
+		inline void SetEventCallback(const EventCallbackFn& callback)override { m_Data.EventCallback = callback; }//接受一个函数名赋值给本类的EventCallback变量
 		void SetVSync(bool enabled)override;
 		bool IsVSync()const override;
 	private:
