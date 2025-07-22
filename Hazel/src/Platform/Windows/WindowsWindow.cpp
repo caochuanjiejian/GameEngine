@@ -25,6 +25,10 @@ namespace Hazel {
 	{
 		Init(props);
 	}
+
+
+
+
 	WindowsWindow::~WindowsWindow() { Shutdown(); }
 
 

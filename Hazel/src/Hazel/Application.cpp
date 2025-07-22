@@ -7,6 +7,9 @@
 
 namespace Hazel {
 #define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
+
+
+
 	Application::Application() {
 		m_Window =std::unique_ptr<Window>( Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));//此时m_Window对象的EventCallback函数就等于OnEvent
@@ -14,6 +17,8 @@ namespace Hazel {
 
 	Application::~Application() {
 	}
+
+
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);

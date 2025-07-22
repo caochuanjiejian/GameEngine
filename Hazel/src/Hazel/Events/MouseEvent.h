@@ -4,6 +4,18 @@
 
 namespace Hazel {
 
+
+	/*
+	创建对象的时候需要传入两个float型的参数以初始化成员变量m_MouseX, m_MouseY，
+	有成员函数GetX，GetY用来获取成员变量m_MouseX, m_MouseY，
+	有成员函数ToString()用来获取字符串"MouseMovedEvent: +m_MouseX+m_MouseY" 
+	有个静态方法GetStaticType()用来获取EventType::MouseMoved(枚举类)，
+	 有个成员函数GetEventType(),用来获取EventType::MouseMoved(枚举类)，
+	 有个成员函数GetName()用来获取字符串“MouseMoved",
+	 有个成员函数GetCategoryFlags(),用来获取EventCategoryMouse|EventCategoryInput（枚举），		  
+	有个成员函数IsInCategory(EventCategory category)，接受一个枚举，如果是EventCategoryMouse或EventCategoryInput，则返回true，
+	 有一个成员变量m_Handled，值为false
+	*/
 	class HAZEL_API MouseMovedEvent :public Event
 	{
 	public:
@@ -23,6 +35,20 @@ namespace Hazel {
 	private:
 		float m_MouseX, m_MouseY;
 	};
+
+
+
+	/*
+	创建对象的时候需要传入两个float型的参数以初始化成员变量m_XOffset, m_YOffset，
+	有成员函数GetXOffset，GetYOffset用来获取成员变量m_XOffset, m_YOffset，
+	有成员函数ToString()用来获取字符串"MouseScrolledEvent: +m_XOffset+m_YOffset"
+	有个静态方法GetStaticType()用来获取EventType::MouseScrolled(枚举类)，
+	 有个成员函数GetEventType(),用来获取EventType::MouseScrolled(枚举类)，
+	 有个成员函数GetName()用来获取字符串“MouseScrolled",
+	 有个成员函数GetCategoryFlags(),用来获取EventCategoryMouse|EventCategoryInput（枚举），
+	有个成员函数IsInCategory(EventCategory category)，接受一个枚举，如果是EventCategoryMouse或EventCategoryInput，则返回true，
+	 有一个成员变量m_Handled，值为false
+	*/
 
 	class HAZEL_API MouseScrolledEvent :public Event
 	{
@@ -44,6 +70,13 @@ namespace Hazel {
 	private:
 		float m_XOffset, m_YOffset;
 	};
+
+
+
+
+
+
+	
 	class HAZEL_API MouseButtonEvent :public Event
 	{
 	public:
@@ -56,6 +89,20 @@ namespace Hazel {
 		int m_Button;
 	};
 
+
+
+
+	/*
+	创建对象的时候需要传入一个int型的参数以初始化成员变量m_Button，
+	有成员函数ToString()用来获取字符串"MouseButtonPressedEvent: +m_Button"
+	有成员函数GetMouseButton()用来获取成员变量m_Button
+	有个静态方法GetStaticType()用来获取EventType::MouseButtonPressed(枚举类)，
+	 有个成员函数GetEventType(),用来获取EventType::MouseButtonPressed(枚举类)，
+	 有个成员函数GetName()用来获取字符串“MouseButtonPressed",
+	 有个成员函数GetCategoryFlags(),用来获取EventCategoryMouse|EventCategoryInput（枚举），
+	有个成员函数IsInCategory(EventCategory category)，接受一个枚举，如果是EventCategoryMouse或EventCategoryInput，则返回true，
+	 有一个成员变量m_Handled，值为false
+	*/
 	class HAZEL_API MouseButtonPressedEvent :public MouseButtonEvent
 	{
 	public:
@@ -71,6 +118,21 @@ namespace Hazel {
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
+
+
+
+
+	/*
+	创建对象的时候需要传入一个int型的参数以初始化成员变量m_Button，
+	有成员函数ToString()用来获取字符串"MouseButtonReleasedEvent: +m_Button"
+	有成员函数GetMouseButton()用来获取成员变量m_Button
+	有个静态方法GetStaticType()用来获取EventType::MouseButtonReleased(枚举类)，
+	 有个成员函数GetEventType(),用来获取EventType::MouseButtonReleased(枚举类)，
+	 有个成员函数GetName()用来获取字符串“MouseButtonReleased",
+	 有个成员函数GetCategoryFlags(),用来获取EventCategoryMouse|EventCategoryInput（枚举），
+	有个成员函数IsInCategory(EventCategory category)，接受一个枚举，如果是EventCategoryMouse或EventCategoryInput，则返回true，
+	 有一个成员变量m_Handled，值为false
+	*/
 	class HAZEL_API MouseButtonReleasedEvent :public MouseButtonEvent
 	{
 	public:

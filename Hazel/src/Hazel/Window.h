@@ -15,6 +15,8 @@ namespace Hazel {
 		{
 		}
 	};
+
+
 	class HAZEL_API Window
 	{
 	public:
