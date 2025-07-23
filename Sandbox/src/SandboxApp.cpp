@@ -1,5 +1,9 @@
 #include <Hazel.h>
 //新增
+
+/*
+创建实例时会初始化成员变量m_DebugName为"Example"，
+*/
 class ExampleLayer :public Hazel::Layer
 {
 public:
@@ -9,11 +13,11 @@ public:
 	}
 	void OnUpdate() override
 	{
-		HZ_INFO("ExampleLayer:Update");
+		HZ_INFO("cheche");
 	}
 	void OnEvent(Hazel::Event& event)override
 	{
-		HZ_TRACE("{0}", event.ToString());
+		HZ_TRACE("bobo");
 	}
 
 
@@ -38,8 +42,8 @@ int main(int argc, char** argv) {
 
 /*
 创建对象的是时候，会创建一个WindowsWindow对象，默认标题为Hazel Engine，宽度为1280，高为720传给m_Data.Title，m_Data.Width ，m_Data.Height，
-执行glfwInit()，创建一个glfwWindow对象传给成员变量m_Window
-执行glfwMakeContextCurrent(m_Window)，把成员变量m_Data的数据传给glfwWindow对象m_Window，开启垂直同步，当窗口的宽高变化时，触发窗口变化事件，当窗口关闭时触发窗口关闭事件 /
+创建一个glfwWindow对象传给成员变量m_Window
+当窗口的宽高变化时，触发窗口变化事件，当窗口关闭时触发窗口关闭事件 /
 当键盘被按下时触发键盘事件，当鼠标动作时触发鼠标事件，鼠标滚轮事件，鼠标光标事件,
 然后把本对象的OnEvent函数传给m_Window的成员函数SetEventCallback，
 有一个成员函数OnEvent接受一个WindowCloseEvent类型的对象，把成员函数m_Running设为false，把此事件的m_Handled设为true，
