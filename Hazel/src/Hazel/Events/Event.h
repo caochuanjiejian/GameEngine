@@ -44,12 +44,14 @@ namespace Hazel{
 		{
 			return GetCategoryFlags() & category;
 		}
-	protected:
+	
 		bool m_Handled = false;
 	};
 
 
-	//事件分发器，创建对象时需要传入事件，有一个Dispatch成员函数，接受一个函数对象
+	//事件分发器，创建对象时需要传入事件，用来初始化成员变量m_Event，
+	// 有一个Dispatch成员函数，接受一个接收任意事件类型参数返回布尔值的函数对象，如果此时事件类型和创建对象传入的事件的类型相同，
+	//则对传入的事件执行fun函数，并返回TRUE，否则返回false
 	class EventDispatcher
 	{
 		template<typename T>

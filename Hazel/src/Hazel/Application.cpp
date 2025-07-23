@@ -2,7 +2,7 @@
 #include "Application.h"
 
 
-#include"Log.h"
+#include"Hazel/Log.h"
 #include <GLFW/glfw3.h>
 
 namespace Hazel {
@@ -17,13 +17,31 @@ namespace Hazel {
 
 	Application::~Application() {
 	}
+	//新增
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+	//新增
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushOverlay(layer);
+	}
 
 
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		HZ_CORE_INFO("{0}",e.ToString());
+		
+
+		//新增
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.m_Handled)
+				break;
+		}
 	}
 
 	
@@ -33,6 +51,11 @@ namespace Hazel {
 		while (m_Running) {
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			//新增
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
 			m_Window->OnUpdate();
 			
 		}
