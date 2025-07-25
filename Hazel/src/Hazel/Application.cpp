@@ -10,13 +10,18 @@ namespace Hazel {
 
 	Application* Application::s_Instance = nullptr;
 
+
 	Application::Application() {
 		HZ_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
+
+
 		m_Window =std::unique_ptr<Window>( Window::Create());
+
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));//此时m_Window对象的EventCallback函数就等于OnEvent
 		
 	}
+
 
 	Application::~Application() {
 	}

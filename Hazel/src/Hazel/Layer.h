@@ -4,10 +4,8 @@
 
 namespace Hazel {
 	/*
-	创建实例时会初始化成员变量m_DebugName为"Layer"，
+	创建实例时会初始化成员变量m_DebugName为"Layer"或者传入字符串
 	GetName()，用来获取m_DebugName
-	
-	
 	*/
 	class HAZEL_API Layer
 	{
